@@ -6,6 +6,7 @@ import java.util.Collections;
 import java.util.Map;
 
 import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -49,7 +50,8 @@ public class ApiGatewayResponse {
 
 		private static final Logger LOG = Logger.getLogger(ApiGatewayResponse.Builder.class);
 
-		private static final ObjectMapper objectMapper = new ObjectMapper();
+		@Autowired
+		ObjectMapper objectMapper;
 
 		private int statusCode = 200;
 		private Map<String, String> headers = Collections.emptyMap();
